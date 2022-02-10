@@ -12,8 +12,8 @@ public class DaysheetDTO {
 
     private String day;
     private String date;
-    private int startTime;
-    private int endTime;
+    private String startTime;
+    private String endTime;
     private int hours;
     private boolean ifFloating;
     private boolean ifHoliday;

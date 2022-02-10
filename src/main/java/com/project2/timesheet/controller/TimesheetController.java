@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.xml.sax.helpers.AttributesImpl;
 
 import java.sql.Time;
 import java.util.List;
@@ -76,5 +77,12 @@ public class TimesheetController {
         }
 
         return new ResponseEntity<>(weeksheetTSResponse, HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<Timesheet> update(@RequestBody Timesheet timesheet) {
+        Timesheet res = timesheetService.updateTimesheet(timesheet);
+        //WeeksheetsTSResponse weeksheetsTSResponse = new WeeksheetsTSResponse();
+        return new ResponseEntity<Timesheet>(res, HttpStatus.OK);
     }
 }
