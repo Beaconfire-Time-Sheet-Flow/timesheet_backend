@@ -9,11 +9,14 @@ import com.project2.timesheet.repo.TimesheetRepository;
 import com.project2.timesheet.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.aggregation.DateOperators;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TimesheetService {
@@ -151,14 +154,22 @@ public class TimesheetService {
 //        Timesheet report = timesheetPepository.findByEndDateAndUserId(endDate, uid);
 //        return ResponseEntity.status(HttpStatus.CREATED).body(report);
 //    }
-//
-//    public ResponseEntity<Boolean> updateTimesheet(List timesheetMap) {
+    @Transactional
+    public Timesheet updateTimesheet(Timesheet timesheet) {
+        //System.out.println(timesheet.toString());
+        timesheetRepository.save(timesheet);
+        return timesheetToDomain(timesheet);
+    }
+    Timesheet timesheetToDomain(Timesheet timesheet) {
+        List<Weeksheet> weeksheets = timesheet.getWeeks();
+        return timesheet;
+    }
 //        try {
 //            System.out.println(timesheetMap.toString());
 //
 //            int uid = (Integer) timesheetMap.get(0);
 //            String WeekEnd = (String) timesheetMap.get(1);
-//            Timesheet timesheet = timesheetPepository.findByEndDateAndUserId(WeekEnd, uid);
+//            Timesheet timesheet = timesheetRepository.findByEndDateAndUserId(WeekEnd, uid);
 //
 //            timesheet.setTotalBillingHours(Double.parseDouble((String) timesheetMap.get(2)));
 //            timesheet.setTotalCompensatedHours(Double.parseDouble((String) timesheetMap.get(3)));
@@ -170,6 +181,6 @@ public class TimesheetService {
 //            String file = (String) timesheetMap.get(8);
 //
 //        }
-//    }
+
 
 }
