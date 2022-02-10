@@ -8,12 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-@Repository
+
+//@Repository
 public interface TimesheetRepository extends MongoRepository<Timesheet, String>{
 
-    List<Timesheet> findAllByUserId(int uid);
+    //List<Timesheet> findAllByUserId(int uid);
 
-    Timesheet findByEndDateAndUserId(String endDate, int uid);
+    //Timesheet findByEndDateAndUserId(String endDate, int uid);
 
     Optional<Timesheet> findTimesheetByUserId(int uid);
 }

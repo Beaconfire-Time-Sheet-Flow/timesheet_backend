@@ -1,6 +1,6 @@
 package com.project2.timesheet.controller;
 
-import com.netflix.discovery.converters.Auto;
+//import com.netflix.discovery.converters.Auto;
 import com.project2.timesheet.domain.*;
 import com.project2.timesheet.domain.dto.WeeksheetDTO;
 import com.project2.timesheet.domain.req.WeeksheetTSRequest;
@@ -39,7 +39,7 @@ public class TimesheetController {
 
     @GetMapping("fetch")
     @ApiOperation(value = "Get the Timesheet for current user", response = Timesheet.class)
-    public ResponseEntity<Timesheet> getTimesheet(@RequestHeader("userId") Integer userId) {
+    public ResponseEntity<Timesheet> getTimesheet(@RequestParam Integer userId) {
         if(userId == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }

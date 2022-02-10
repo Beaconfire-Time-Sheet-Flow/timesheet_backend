@@ -23,7 +23,7 @@ import java.util.List;
 @Builder
 @ToString
 @QueryEntity
-@Document(collection = "timesheet")
+@Document(collection = "weeksheet")
 public class Timesheet {
 
     @Id
