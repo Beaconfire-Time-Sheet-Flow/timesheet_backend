@@ -67,7 +67,8 @@ public class TimesheetService {
         weeksheetDTO.setTotalCompensatedHours(weeksheet.getTotalCompensatedHours());
         weeksheetDTO.setSubmissionStatus(weeksheet.getSubmissionStatus());
         weeksheetDTO.setApprovalStatus(weeksheet.getApprovalStatus());
-        weeksheetDTO.setComment(weeksheet.getComment());
+        weeksheetDTO.setFloatingDaysLeft(weeksheet.getFloatingDaysLeft());
+        weeksheetDTO.setVacationDaysLeft(weeksheet.getVacationDaysLeft());
 
         return weeksheetDTO;
     }

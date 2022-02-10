@@ -14,9 +14,9 @@ public class Daysheet {
 
     private String day;
     private String date;
-    private String startTime;
-    private String endTime;
-    private int totalHours;
+    private int startTime;
+    private int endTime;
+    private int hours;
     private boolean isFloating;
     private boolean isHoliday;
     private boolean isVacation;

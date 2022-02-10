@@ -15,5 +15,6 @@ public class WeeksheetDTO {
     private int totalCompensatedHours;
     private String submissionStatus;
     private String approvalStatus;
-    private String comment;
+    private int floatingDaysLeft;
+    private int vacationDaysLeft;
 }
