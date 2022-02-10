@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Time;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @Api(tags = {"Timesheet - core service"})
 public class TimesheetController {

@@ -22,7 +22,9 @@ public class Weeksheet {
 
     private String approvalStatus;
 
-    private String comment;
+    private int floatingDaysLeft;
+    
+    private int vacationDaysLeft;
 
     private List<Daysheet> days;
 
