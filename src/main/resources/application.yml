@@ -1,0 +1,14 @@
+spring:
+
+  application:
+    name: timesheet
+
+  data:
+    mongodb:
+    uri: mongodb+srv://localhost/?readPreference=primary&ssl=false
+    database: timesheet
+
+  server:
+    port: 9090
+    servlet:
+      context-path: /timesheet
