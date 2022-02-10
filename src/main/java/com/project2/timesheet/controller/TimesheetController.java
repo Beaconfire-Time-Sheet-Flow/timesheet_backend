@@ -79,7 +79,7 @@ public class TimesheetController {
         return new ResponseEntity<>(weeksheetTSResponse, HttpStatus.OK);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public ResponseEntity<Timesheet> update(@RequestBody Timesheet timesheet) {
         Timesheet res = timesheetService.updateTimesheet(timesheet);
         //WeeksheetsTSResponse weeksheetsTSResponse = new WeeksheetsTSResponse();
