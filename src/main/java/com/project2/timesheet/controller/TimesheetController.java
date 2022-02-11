@@ -96,6 +96,13 @@ public class TimesheetController {
         WeeksheetTSResponse res = timesheetService.updateSingleWeeksheet(weeksheet, weekEnding, userId);
         return new ResponseEntity<WeeksheetTSResponse>(res, HttpStatus.OK);
     }
+    
+    @PutMapping("/update-template")
+    @ApiOperation(value = "update default template", response = WeeksheetTSResponse.class)
+    public ResponseEntity<Timesheet> updateDefaultTemplate(@RequestBody Timesheet timesheet) {
+        Timesheet res = timesheetService.updateDefaultTemplate(timesheet);
+        return new ResponseEntity<Timesheet>(res, HttpStatus.OK);
+    }
 
     @GetMapping("/create-week-sheet")
     @ApiOperation(value = "create a weeksheet", response = WeeksheetTSResponse.class)
