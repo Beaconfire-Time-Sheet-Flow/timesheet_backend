@@ -5,8 +5,12 @@ spring:
 
   data:
     mongodb:
-    uri: mongodb+srv://localhost/?readPreference=primary&ssl=false
-    database: timesheet
+    #uri: mongodb+srv://localhost/?readPreference=primary&ssl=false
+    host: localhost
+    port: 27017
+    #username: testuser2
+    #password: test
+    #database: timesheet
 
   server:
     port: 9090

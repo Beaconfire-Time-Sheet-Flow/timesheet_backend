@@ -79,10 +79,31 @@ public class TimesheetController {
         return new ResponseEntity<>(weeksheetTSResponse, HttpStatus.OK);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Timesheet> update(@RequestBody Timesheet timesheet) {
+    @PutMapping("/update-timesheet")
+    @ApiOperation(value = "update timesheet", response = Timesheet.class)
+    public ResponseEntity<Timesheet> updateTimesheet(@RequestBody Timesheet timesheet) {
         Timesheet res = timesheetService.updateTimesheet(timesheet);
         //WeeksheetsTSResponse weeksheetsTSResponse = new WeeksheetsTSResponse();
         return new ResponseEntity<Timesheet>(res, HttpStatus.OK);
+    }
+
+    @PutMapping("/update-weeksheet")
+    @ApiOperation(value = "update weeksheet", response = WeeksheetTSResponse.class)
+    public ResponseEntity<WeeksheetTSResponse> updateSingleWeeksheet(
+            @RequestBody Weeksheet weeksheet,
+            @RequestParam String weekEnding,
+            @RequestParam int userId) {
+        WeeksheetTSResponse res = timesheetService.updateSingleWeeksheet(weeksheet, weekEnding, userId);
+        return new ResponseEntity<WeeksheetTSResponse>(res, HttpStatus.OK);
+    }
+
+    @GetMapping("/create-week-sheet")
+    @ApiOperation(value = "create a weeksheet", response = WeeksheetTSResponse.class)
+    public ResponseEntity<WeeksheetTSResponse> getDefualtTemplate(@RequestBody Timesheet timesheet,
+                                                                    @RequestParam String weekEnding){
+        WeeksheetTSResponse weeksheetTSResponse = new WeeksheetTSResponse();
+
+        weeksheetTSResponse = timesheetService.getDefaultTemplate(timesheet, weekEnding, timesheet.getUserId());
+        return new ResponseEntity<WeeksheetTSResponse>(weeksheetTSResponse, HttpStatus.OK);
     }
 }
